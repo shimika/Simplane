@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Simplane.NotiItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:Simplane"
+             mc:Ignorable="d" 
+			 
+			 Height="80" d:DesignWidth="350" ClipToBounds="True" Opacity="0">
+	
+	<Grid x:Name="gridMain" Background="Crimson">
+		
+		<local:ImageButton x:Name="buttonSave" Size="40" Height="80" Source="Resources/close.png" InnerMargin="5" VerticalAlignment="Center"
+						   Type="save" Response="CloseEvent"/>
+		
+		<StackPanel Background="White" Margin="41,1,1,1" MouseDown="MainArea_MouseDown">
+			<TextBlock x:Name="textTitle" Text="" Margin="15,10,15,5" FontSize="20" Foreground="Crimson"/>
+			<TextBlock x:Name="textScript" Text="" Margin="15,0,15,10" FontSize="13.33" TextTrimming="CharacterEllipsis"/>
+		</StackPanel>
+ 	</Grid>
+</UserControl>

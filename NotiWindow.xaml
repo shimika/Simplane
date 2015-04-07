@@ -1,0 +1,13 @@
+﻿<Window x:Class="Simplane.NotiWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NotiWindow" Height="300" Width="350" WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent" ShowInTaskbar="False" WindowStartupLocation="Manual" Focusable="False"
+        Topmost="True"
+        >
+    <StackPanel x:Name="stackNotiPanel" VerticalAlignment="Bottom" Background="Transparent" Margin="0,0,10,10">
+		<StackPanel.Effect>
+			<DropShadowEffect x:Name="grideffectShadow" BlurRadius="10" ShadowDepth="3" Direction="270" Color="Black" Opacity="0.5"/>
+		</StackPanel.Effect>
+	</StackPanel>
+</Window>
