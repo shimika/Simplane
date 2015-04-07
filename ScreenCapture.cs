@@ -88,7 +88,9 @@ namespace Simplane {
 		private static int Count = 0;
 
 		public static string GetFileName() {
-			return String.Format("{0}_{1}", Regex.Replace(DateTime.Now.ToString(), @"[:-]+", "_"), Count++);
+			return String.Format("{0}_{1}",
+				DateTime.Now.ToString("yyyy_MM_dd_HH.mm.ss"),
+				Count++);
 		}
 
 		public static string SaveImage(Bitmap bitmap) {
