@@ -58,7 +58,6 @@ namespace Simplane {
 					UploadFile(ScreenCapture.UploadDesktop());
 				}
 				else if (wParam.ToString() == Area.ToString()) {
-					//tray.ShowBalloonTip(3000, (++count).ToString(), "Hello", System.Windows.Forms.ToolTipIcon.None);
 					window.Reset(true);
 				}
 				else if (wParam.ToString() == Save.ToString()) {

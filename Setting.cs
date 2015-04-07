@@ -13,7 +13,6 @@ namespace Simplane {
 		public static string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Simplane\";
 
 		public static string Version = "1.0";
-		public static string NewVersion = "1.0";
 
 		public static string Server = "";
 		public static string Token = "";

@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace Simplane {
@@ -34,7 +35,7 @@ namespace Simplane {
 				Bitmap result = new Bitmap(bounds.Width, bounds.Height);
 
 				using (var graphics = Graphics.FromImage(result)) {
-					graphics.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
+					graphics.CopyFromScreen(new System.Drawing.Point(bounds.Left, bounds.Top), System.Drawing.Point.Empty, bounds.Size);
 				}
 
 				return result;
@@ -51,7 +52,12 @@ namespace Simplane {
 		}
 
 		public static Bitmap CaptureDesktop() {
-			return CaptureWindow(GetDesktopWindow());
+			Bitmap bitmap = CaptureWindow(GetDesktopWindow(), new Rect() {
+				Left = 0, Top = 0,
+				Right = (int)SystemParameters.VirtualScreenWidth,
+				Bottom = (int)SystemParameters.VirtualScreenHeight,
+			});
+			return bitmap;
 		}
 
 		public static Bitmap CaptureActiveWindow() {

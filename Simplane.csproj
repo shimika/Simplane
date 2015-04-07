@@ -59,11 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AltTab.cs" />
+    <Compile Include="System\AltTab.cs" />
     <Compile Include="CaptureWindow.xaml.cs">
       <DependentUpon>CaptureWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GlobalHotkey.cs" />
+    <Compile Include="System\GlobalHotkey.cs" />
     <Compile Include="JsonUtility\JsonArrayCollection.cs" />
     <Compile Include="JsonUtility\JsonBooleanValue.cs" />
     <Compile Include="JsonUtility\JsonCollection.cs" />
@@ -81,13 +81,13 @@
     </Compile>
     <Compile Include="ScreenCapture.cs" />
     <Compile Include="Setting.cs" />
-    <Compile Include="SingleInstance.cs" />
-    <Compile Include="SystemEvent.cs" />
-    <Compile Include="Tray.cs" />
-    <Compile Include="Update.cs" />
+    <Compile Include="System\SingleInstance.cs" />
+    <Compile Include="System\SystemEvent.cs" />
+    <Compile Include="System\Tray.cs" />
+    <Compile Include="System\Update.cs" />
     <Compile Include="Upload.cs" />
-    <Compile Include="WinAPI.cs" />
-    <Compile Include="WindowOrder.cs" />
+    <Compile Include="System\WinAPI.cs" />
+    <Compile Include="System\WindowOrder.cs" />
     <Page Include="CaptureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
