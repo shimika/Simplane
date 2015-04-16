@@ -6,7 +6,8 @@
         Title="Option" Height="350" Width="350" 
         WindowStartupLocation="Manual" Topmost="True" AllowsTransparency="True"
         ResizeMode="CanMinimize" WindowStyle="None" ShowInTaskbar="True" Background="Transparent"
-        Loaded="Window_Loaded" Activated="Window_Activated" Deactivated="Window_Deactivated" Closing="Window_Closing">
+        Loaded="Window_Loaded" Activated="Window_Activated" Deactivated="Window_Deactivated" Closing="Window_Closing"
+		AllowDrop="True" DragLeave="Window_DragLeave" DragEnter="Window_DragEnter" Drop="Window_Drop">
     
     <Grid x:Name="gridRoot" Margin="10" Background="White" >
         <Grid.Effect>
@@ -73,6 +74,16 @@
 				<Image Grid.Row="0" Source="Resources/ver.png" Width="22" Margin="5,0,0,0"/>
 				<TextBlock Text="Version" Grid.Column="1" HorizontalAlignment="Left" />
 				<TextBlock x:Name="textVersion" Grid.Column="2" Margin="10"/>
+			</Grid>
+
+			<Grid x:Name="gridUpload" Height="50" Opacity="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="40"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<Image Grid.Row="0" Source="Resources/fileupload.png" Width="22" Margin="5,0,0,0"/>
+				<TextBlock x:Name="textUpload" Grid.Column="1" Margin="10"/>
 			</Grid>
 		</StackPanel>
     </Grid>

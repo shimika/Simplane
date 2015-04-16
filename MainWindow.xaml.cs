@@ -36,7 +36,7 @@ namespace Simplane {
 			ToggleHotKeyMode(true);
 
 			InitTray();
-			InitUpdateTimer();
+			InitUpdater();
 		}
 
 		private void ApplySetting() {
@@ -63,7 +63,7 @@ namespace Simplane {
 					buttonSave.ViewMode = ImageButton.Mode.Hidden;
 					break;
 				case "vercheck":
-					CheckUpdate(true);
+					UpdateCheck();
 					break;
 				case "update":
 					UpdateDownload();

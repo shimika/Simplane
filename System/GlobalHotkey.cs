@@ -76,8 +76,8 @@ namespace Simplane {
 				UploadFile(file);
 			}
 			else {
-				string file = ScreenCapture.SaveArea(e.Left, e.Top, e.Right, e.Bottom);
-				string path = String.Format("{0}{1}", Setting.SavePath, file);
+				string path = ScreenCapture.SaveArea(e.Left, e.Top, e.Right, e.Bottom);
+				string file = Path.GetFileName(path);
 
 				if (File.Exists(path)) {
 					string to = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), file);

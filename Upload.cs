@@ -9,10 +9,11 @@ using System.Windows;
 
 namespace Simplane {
 	public partial class MainWindow : Window {
-		private void UploadFile(string file) {
-			string path = String.Format("{0}{1}", Setting.SavePath, file);
-
+		private void UploadFile(string path) {
 			if (!File.Exists(path)) {
+				Log.WriteLog("File not found");
+				Log.WriteLog(path);
+
 				ShowNotify("File not found", "Error", System.Windows.Forms.ToolTipIcon.Error);
 				return;
 			}
@@ -29,7 +30,7 @@ namespace Simplane {
 
 		private void client_UploadFileCompleted(object sender, UploadFileCompletedEventArgs e) {
 			ChangeTray(false);
-			this.Activate();
+			//this.Activate();
 
 			if (e.Error != null) {
 				ShowNotify(e.Error.Message, "Error", System.Windows.Forms.ToolTipIcon.Error);

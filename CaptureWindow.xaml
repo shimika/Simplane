@@ -13,12 +13,6 @@
 						 RenderAtScale="1"
 						 SnapsToDevicePixels="False"/>
 		</Canvas.CacheMode>
-		<!-- 
-		<Line x:Name="lineLeft"   Stroke="Black" StrokeThickness="1" Opacity="0"/>
-		<Line x:Name="lineTop"    Stroke="Black" StrokeThickness="1" Opacity="0"/>
-		<Line x:Name="lineRight"  Stroke="Black" StrokeThickness="1" Opacity="0"/>
-		<Line x:Name="lineBottom" Stroke="Black" StrokeThickness="1" Opacity="0"/>
-		-->
 
 		<Border x:Name="border" BorderBrush="Blue" BorderThickness="1"
                 Background="#70ffffff" />

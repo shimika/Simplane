@@ -109,11 +109,14 @@ namespace Simplane {
 				string fileName = String.Format("{0}.jpg", GetFileName());
 				string filePath = String.Format("{0}{1}", Setting.SavePath, fileName);
 
+				Log.WriteLog(fileName);
+				Log.WriteLog(filePath);
+
 				using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write)) {
 					jpg.Save(fs);
 				}
 
-				return fileName;
+				return filePath;
 			} catch { }
 			return "";
 		}

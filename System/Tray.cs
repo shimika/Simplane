@@ -24,7 +24,7 @@ namespace Simplane {
 			tray.Icon = System.Drawing.Icon.FromHandle(Simplane.Properties.Resources.normal.Handle);
 			tray.Text = "Simplane";
 
-			ToolStripMenuItem ver = new ToolStripMenuItem(Setting.Version);
+			ToolStripMenuItem ver = new ToolStripMenuItem(Version.NowVersion);
 			ToolStripMenuItem recent = new ToolStripMenuItem("Recent");
 
 			ToolStripMenuItem save = new ToolStripMenuItem("(Ctrl + Shift + 1) Save Area in Desktop", null, Function) { Tag = "save" };
@@ -82,7 +82,7 @@ namespace Simplane {
 			if (isUpload) {
 				tray.Icon = System.Drawing.Icon.FromHandle(Simplane.Properties.Resources.upload.Handle);
 			} else {
-				if (Setting.Version != NewVersion) {
+				if (Version.NowVersion != updater.NewVersion) {
 					tray.Icon = System.Drawing.Icon.FromHandle(Simplane.Properties.Resources.update.Handle);
 				}
 				else {
