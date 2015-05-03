@@ -22,6 +22,8 @@ namespace Simplane {
 				new DoubleAnimation(0.1, TimeSpan.FromMilliseconds(100)));
 		}
 
+		DispatcherTimer timerUpdateIndicator;
+		int turnUpdate;
 		private void StartUpdateIndicator() {
 			if (timerUpdateIndicator == null) {
 				timerUpdateIndicator = new DispatcherTimer();

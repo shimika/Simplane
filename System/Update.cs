@@ -17,13 +17,17 @@ namespace Simplane {
 
 		Updater updater = null;
 
-		DispatcherTimer timerUpdateIndicator;
-		int turnUpdate;
-
 		private void InitUpdater() {
 			updater = new Updater("Simplane", Version.NowVersion);
 			updater.UpdateAvailable += UpdateAvailable;
 			updater.UpdateComplete += UpdateComplete;
+
+			updater.UpdateCheck();
+		}
+
+		private void UpdateCheck() {
+			textVersion.Opacity = 0;
+			buttonUpdateCheck.StartAnimateImage(-1);
 
 			updater.UpdateCheck();
 		}
@@ -42,6 +46,13 @@ namespace Simplane {
 			}
 		}
 
+		private void UpdateDownload() {
+			buttonUpdate.ViewMode = ImageButton.Mode.Disable;
+			StartUpdateIndicator();
+
+			updater.UpdateApplication();
+		}
+
 		private void UpdateComplete(object sender, UpdateCompleteArgs e) {
 			if (e.Complete) {
 				this.Close();
@@ -50,20 +61,6 @@ namespace Simplane {
 				buttonUpdate.ViewMode = ImageButton.Mode.Visible;
 				StopUpdateIndicator();
 			}
-		}
-
-		private void UpdateCheck() {
-			textVersion.Opacity = 0;
-			buttonUpdateCheck.StartAnimateImage(-1);
-
-			updater.UpdateCheck();
-		}
-
-		private void UpdateDownload() {
-			buttonUpdate.ViewMode = ImageButton.Mode.Disable;
-			StartUpdateIndicator();
-
-			updater.UpdateApplication();
 		}
 	}
 }
