@@ -14,6 +14,7 @@ namespace Simplane {
 
 		public static string Server = "";
 		public static string Token = "";
+		public static string SaveMethod = "JPG";
 
 		public static bool Load() {
 			if (!File.Exists(SettingPath)) {
@@ -30,6 +31,7 @@ namespace Simplane {
 
 					Server = collect["Server"].GetValue().ToString();
 					Token = collect["Token"].GetValue().ToString();
+					SaveMethod = collect["SaveMethod"].GetValue().ToString();
 				}
 			} catch (Exception ex) {
 				//MessageBox.Show(ex.Message);
@@ -41,6 +43,7 @@ namespace Simplane {
 			JsonObjectCollection root = new JsonObjectCollection();
 			root.Add(new JsonStringValue("Server", Server));
 			root.Add(new JsonStringValue("Token", Token));
+			root.Add(new JsonStringValue("SaveMethod", SaveMethod));
 
 			using (StreamWriter sw = new StreamWriter(SettingPath)) {
 				sw.Write(root);

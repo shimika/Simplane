@@ -34,7 +34,7 @@ namespace Simplane {
 			}
 		}
 
-		string[] extCollect = new string[] { "jpg", "jpeg", "png", "gif", "bmp" };
+		string[] extCollect = new string[] { "jpg", "jpeg", "png", "gif", "bmp", "zip", "mp3", "rar" };
 		private string GetFirstFile(DataObject data) {
 			foreach (string filePath in data.GetFileDropList()) {
 				if (File.Exists(filePath)) {

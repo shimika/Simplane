@@ -101,19 +101,28 @@ namespace Simplane {
 					Directory.CreateDirectory(Setting.SavePath);
 				}
 
-				//PngBitmapEncoder png = new PngBitmapEncoder();
-				JpegBitmapEncoder jpg = new JpegBitmapEncoder();
-				jpg.QualityLevel = 90;
-				jpg.Frames.Add(BitmapFrame.Create(GetBitmapSource(bitmap)));
-
-				string fileName = String.Format("{0}.jpg", GetFileName());
+				string fileName = String.Format("{0}.{1}", GetFileName(), Setting.SaveMethod.ToLower());
 				string filePath = String.Format("{0}{1}", Setting.SavePath, fileName);
 
 				Log.WriteLog(fileName);
 				Log.WriteLog(filePath);
 
-				using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write)) {
-					jpg.Save(fs);
+				if (Setting.SaveMethod == "JPG") {
+					JpegBitmapEncoder jpg = new JpegBitmapEncoder();
+					jpg.QualityLevel = 90;
+					jpg.Frames.Add(BitmapFrame.Create(GetBitmapSource(bitmap)));
+
+					using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write)) {
+						jpg.Save(fs);
+					}
+				}
+				else {
+					PngBitmapEncoder png = new PngBitmapEncoder();
+					png.Frames.Add(BitmapFrame.Create(GetBitmapSource(bitmap)));
+
+					using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write)) {
+						png.Save(fs);
+					}
 				}
 
 				return filePath;

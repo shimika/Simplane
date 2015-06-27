@@ -29,6 +29,9 @@ namespace Simplane {
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
+			checkJPG.ValueChanged += ImageSave_SettingChanged;
+			checkPNG.ValueChanged += ImageSave_SettingChanged;
+
 			if (Setting.Load()) { HideOption(); }
 			ApplySetting();
 
@@ -42,6 +45,13 @@ namespace Simplane {
 		private void ApplySetting() {
 			textboxServer.Text = Setting.Server;
 			textboxToken.Text = Setting.Token;
+
+			if (Setting.SaveMethod == "JPG") {
+				checkJPG.IsChecked = true;
+			}
+			else {
+				checkPNG.IsChecked = true;
+			}
 
 			buttonSave.ViewMode = ImageButton.Mode.Hidden;
 		}
@@ -58,6 +68,13 @@ namespace Simplane {
 				case "save":
 					Setting.Server = textboxServer.Text;
 					Setting.Token = textboxToken.Text;
+
+					if (checkJPG.IsChecked == true) {
+						Setting.SaveMethod = "JPG";
+					}
+					else {
+						Setting.SaveMethod = "PNG";
+					}
 
 					Setting.Save();
 					buttonSave.ViewMode = ImageButton.Mode.Hidden;
@@ -78,8 +95,23 @@ namespace Simplane {
 			buttonSave.ViewMode = ImageButton.Mode.Visible;
 		}
 
+		private void ImageSave_SettingChanged(object sender, CheckBoxEventArgs e) {
+			if (e.NewValue == false) { return; }
+
+			bool jpgCheck = e.Method == "JPG";
+
+			checkJPG.IsChecked = jpgCheck;
+			checkJPG.IsHitTestVisible = !jpgCheck;
+			checkPNG.IsChecked = !jpgCheck;
+			checkPNG.IsHitTestVisible = jpgCheck;
+
+			buttonSave.ViewMode = ImageButton.Mode.Visible;
+		}
+
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
 			try {
+				Setting.Save();
+
 				window.Close();
 				notiWindow.Close();
 				tray.Dispose();

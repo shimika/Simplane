@@ -55,6 +55,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SimpleCheckBox.cs" />
     <Compile Include="Updater.cs" />
     <Compile Include="Version.cs" />
     <Page Include="App.xaml">
@@ -186,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\fileupload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

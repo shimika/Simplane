@@ -63,6 +63,20 @@
                 <TextBlock Text="Token" Grid.Column="1" HorizontalAlignment="Left" />
                 <TextBox x:Name="textboxToken" Grid.Column="2" Margin="10" TextChanged="Textbox_TextChanged"/>
             </Grid>
+			
+			<Grid Height="50">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="40"/>
+					<ColumnDefinition Width="60"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+				<Image Grid.Row="0" Source="Resources/image.png" Width="20" Margin="5,0,0,0"/>
+				<TextBlock Text="Image" Grid.Column="1" HorizontalAlignment="Left" />
+				<local:SimpleCheckbBox x:Name="checkJPG" Method="JPG" Content="JPG" Grid.Column="2" IsChecked="True" Style="{DynamicResource CheckBoxStyle}" IsHitTestVisible="False"/>
+				<local:SimpleCheckbBox x:Name="checkPNG" Method="PNG" Content="PNG" Grid.Column="3" Style="{DynamicResource CheckBoxStyle}"/>
+			</Grid>
 
 			<Grid Height="50">
 				<Grid.ColumnDefinitions>
