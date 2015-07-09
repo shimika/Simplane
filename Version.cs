@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Simplane {
 	class Version {
-		public static string NowVersion = "1.0.5";
+		public static string NowVersion = "1.0.6";
 	}
 }
