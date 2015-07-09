@@ -6,6 +6,7 @@ using System.Net.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Simplane {
 	class Setting {
@@ -15,6 +16,8 @@ namespace Simplane {
 		public static string Server = "";
 		public static string Token = "";
 		public static string SaveMethod = "JPG";
+
+		public static Matrix SystemMatrix = PresentationSource.FromVisual(Application.Current.MainWindow).CompositionTarget.TransformToDevice;
 
 		public static bool Load() {
 			if (!File.Exists(SettingPath)) {

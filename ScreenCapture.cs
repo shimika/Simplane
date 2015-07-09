@@ -54,8 +54,8 @@ namespace Simplane {
 		public static Bitmap CaptureDesktop() {
 			Bitmap bitmap = CaptureWindow(GetDesktopWindow(), new Rect() {
 				Left = 0, Top = 0,
-				Right = (int)SystemParameters.VirtualScreenWidth,
-				Bottom = (int)SystemParameters.VirtualScreenHeight,
+				Right = (int)(SystemParameters.VirtualScreenWidth * Setting.SystemMatrix.M11),
+				Bottom = (int)(SystemParameters.VirtualScreenHeight * Setting.SystemMatrix.M22),
 			});
 			return bitmap;
 		}

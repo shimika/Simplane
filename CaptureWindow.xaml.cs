@@ -156,13 +156,11 @@ namespace Simplane {
 		public bool Upload { get; internal set; }
 
 		public AreaEventArgs(double left, double top, double right, double bottom, bool upload) {
-			Matrix m = PresentationSource.FromVisual(Application.Current.MainWindow).CompositionTarget.TransformToDevice;
+			this.Left = (int)(Math.Min(left, right) * Setting.SystemMatrix.M11);
+			this.Top = (int)(Math.Min(top, bottom) * Setting.SystemMatrix.M22);
 
-			this.Left = (int)(Math.Min(left, right) * m.M11);
-			this.Top = (int)(Math.Min(top, bottom) * m.M22);
-
-			this.Right = (int)(Math.Max(left, right) * m.M11);
-			this.Bottom = (int)(Math.Max(top, bottom) * m.M22);
+			this.Right = (int)(Math.Max(left, right) * Setting.SystemMatrix.M11);
+			this.Bottom = (int)(Math.Max(top, bottom) * Setting.SystemMatrix.M22);
 
 			this.Upload = upload;
 		}
