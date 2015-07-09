@@ -23,6 +23,9 @@ namespace Simplane {
 		public MainWindow() {
 			InitializeComponent();
 			App.mainWindow = this;
+
+			this.Left = SystemParameters.WorkArea.Width / 2 - 160;
+			this.Top = SystemParameters.WorkArea.Height / 2 - 160;
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e) {

@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Simplane"
         
-        Title="Option" Height="350" Width="350" 
-        WindowStartupLocation="CenterScreen" Topmost="True" AllowsTransparency="True"
+        Title="Option" Height="360" Width="360" 
+        WindowStartupLocation="Manual" Topmost="True" AllowsTransparency="True"
         ResizeMode="CanMinimize" WindowStyle="None" ShowInTaskbar="True" Background="Transparent"
         Loaded="Window_Loaded" Activated="Window_Activated" Deactivated="Window_Deactivated" Closing="Window_Closing"
 		AllowDrop="True" DragLeave="Window_DragLeave" DragEnter="Window_DragEnter" Drop="Window_Drop">
