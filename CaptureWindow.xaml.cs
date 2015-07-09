@@ -95,7 +95,7 @@ namespace Simplane {
 
 			HideComponent();
 
-			DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(500), };
+			DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(100), };
 			timer.Tick += timer_Tick;
 			timer.Start();
 		}
@@ -128,7 +128,7 @@ namespace Simplane {
 
 			SetRect(left, top, right, bottom);
 
-			text.Text = String.Format("{0} x {1}", width, height);
+			text.Text = String.Format("{0} x {1}", (int)width, (int)height);
 
 			Canvas.SetLeft(grid, right - 140);
 			Canvas.SetTop(grid, top - 50);
@@ -156,11 +156,13 @@ namespace Simplane {
 		public bool Upload { get; internal set; }
 
 		public AreaEventArgs(double left, double top, double right, double bottom, bool upload) {
-			this.Left = (int)Math.Min(left, right);
-			this.Top = (int)Math.Min(top, bottom);
+			Matrix m = PresentationSource.FromVisual(Application.Current.MainWindow).CompositionTarget.TransformToDevice;
 
-			this.Right = (int)Math.Max(left, right);
-			this.Bottom = (int)Math.Max(top, bottom);
+			this.Left = (int)(Math.Min(left, right) * m.M11);
+			this.Top = (int)(Math.Min(top, bottom) * m.M22);
+
+			this.Right = (int)(Math.Max(left, right) * m.M11);
+			this.Bottom = (int)(Math.Max(top, bottom) * m.M22);
 
 			this.Upload = upload;
 		}

@@ -26,7 +26,7 @@ namespace Simplane {
 
 			RearrangeWindow();
 			DispatcherTimer dtm = new DispatcherTimer() {
-				Interval = TimeSpan.FromMilliseconds(1000),
+				Interval = TimeSpan.FromMilliseconds(3000),
 				IsEnabled = true,
 			};
 			dtm.Tick += (o, e) => RearrangeWindow();
@@ -42,9 +42,9 @@ namespace Simplane {
 		}
 
 		private void RearrangeWindow() {
-			this.Top = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Top;
-			this.Left = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Width - 350;
-			this.Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;
+			this.Top = SystemParameters.WorkArea.Top;
+			this.Left = SystemParameters.WorkArea.Width - 350;
+			this.Height = SystemParameters.WorkArea.Height;
 		}
 
 		public void Alert(string title, string script, string type, Brush brush, int Timeout = 70) {

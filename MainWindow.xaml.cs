@@ -23,9 +23,6 @@ namespace Simplane {
 		public MainWindow() {
 			InitializeComponent();
 			App.mainWindow = this;
-
-			this.Left = SystemParameters.PrimaryScreenWidth / 2 - 150;
-			this.Top = SystemParameters.PrimaryScreenHeight / 2 - 150;
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
@@ -36,6 +33,7 @@ namespace Simplane {
 			ApplySetting();
 
 			SetHotkeyEvent();
+			InitCaptureManager();
 			ToggleHotKeyMode(true);
 
 			InitTray();
@@ -112,7 +110,7 @@ namespace Simplane {
 			try {
 				Setting.Save();
 
-				window.Close();
+				capWindow.Close();
 				notiWindow.Close();
 				tray.Dispose();
 			} catch { }

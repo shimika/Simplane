@@ -13,12 +13,7 @@ namespace Simplane {
 		public NotifyIcon tray = new NotifyIcon();
 		ContextMenuStrip menu = new ContextMenuStrip();
 
-		NotiWindow notiWindow;
-
 		private void InitTray() {
-			notiWindow = new NotiWindow(this);
-			notiWindow.Show();
-
 			tray.Visible = true;
 
 			tray.Icon = System.Drawing.Icon.FromHandle(Simplane.Properties.Resources.normal.Handle);
@@ -68,10 +63,10 @@ namespace Simplane {
 					UploadFile(ScreenCapture.UploadDesktop());
 					break;
 				case "area":
-					window.Reset(true);
+					capWindow.Reset(true);
 					break;
 				case "save":
-					window.Reset(false);
+					capWindow.Reset(false);
 					break;
 				default:
 					break;
